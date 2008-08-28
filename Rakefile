@@ -10,3 +10,9 @@ Hoe.new('cackle', Cackle::VERSION) do |p|
 end
 
 # vim: syntax=Ruby
+
+file 'lib/cackle/acl.rb' => ['lib/cackle/acl.treetop'] do |t|
+	sh "tt #{t.prerequisites.first} -o #{t.name}"
+end
+
+task :test => ['lib/cackle/acl.rb']
