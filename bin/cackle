@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+$:.unshift File.dirname(__FILE__)
+require 'lib/cackle'
+require 'yaml'
+include Cackle
+
+if ARGV.first == '--help'
+	$stderr.puts "Usage: #{$0} filename"
+	$stderr.puts "Other usage: #{$0} \# and then write to my stdin"
+	exit(0)
+end
+
+data = ''
+
+if filename = ARGV.first
+	data = File.read(filename)
+else
+	data = $stdin.read
+end
+
+parser = AccessControlLanguageParser.new
+result = parser.parse(data)
+
+if result.nil?
+  puts 'Failed to parse'
+  exit(-1)
+end
+
+
+rules = RuleList.new(result.selection_array)
+puts YAML::dump(rules)
