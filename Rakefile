@@ -11,8 +11,8 @@ end
 
 # vim: syntax=Ruby
 
-file 'lib/cackle/acl.rb' => ['lib/cackle/acl.treetop'] do |t|
+file 'lib/cackle/acl_parser.rb' => ['lib/cackle/acl_parser.treetop'] do |t|
 	sh "tt #{t.prerequisites.first} -o #{t.name}"
 end
 
-task :test => ['lib/cackle/acl.rb']
+task :test => ['lib/cackle/acl_parser.rb']
