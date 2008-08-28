@@ -1,9 +1,10 @@
+$:.unshift File.dirname(__FILE__)
 require 'treetop'
 require 'yaml'
-require 'cackle/rule_list.rb'
-require 'cackle/node_flavors.rb'
-require 'cackle/acl_parser.rb'
+require 'cackle/rule_list'
+require 'cackle/node_flavors'
+require 'cackle/acl_parser'
 
-class Cackle
+module Cackle
   VERSION = '1.0.0'
 end

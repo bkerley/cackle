@@ -1,3 +1,4 @@
+module Cackle
 grammar AccessControlLanguage
 	rule file
 		(selection / whitespace)* <FileNode>
@@ -44,4 +45,5 @@ grammar AccessControlLanguage
 	rule whitespace
 		[ \t\n\r\v]
 	end
+end
 end
