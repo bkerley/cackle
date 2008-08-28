@@ -1,0 +1,26 @@
+task :default => ['cac.rb']
+task :viz => ['cac.dot'] do |t|
+  sh "dot -Tpdf -o cac.pdf cac.dot"
+  sh "open cac.pdf"
+end
+task :run => ['cac.rb'] do |t|
+  sh "ruby cac.rb"
+end
+
+task :tt => ['tt_test.rb', 'acl.rb'] do |t|
+  sh 'ruby tt_test.rb'
+end
+
+task 'cac.rb' do |t|
+  sh "ragel -R cac.rl"
+end
+
+task 'cac.dot' do |t|
+  sh "ragel -V cac.rl > cac.dot"
+end
+
+task 'tt_test.rb'
+
+task 'acl.rb' do |t|
+  sh 'tt acl.treetop'
+end

@@ -1,0 +1,28 @@
+acl://invalid {
+	allow: whoever;
+}
+
+acl://* {
+	allow: %allow-all %admin;
+	deny: %deny-all;
+}
+
+acl://staging/admin/cms/sites/1 {
+	allow: %starwood-corporate %starwood-caribbean;
+	deny: %our-mortal-enemy;
+	
+	/alpha/interns {
+		allow: %starwood-interns;
+		/bravo/interns {
+			allow: %starwood-interns;
+			/charlie/interns {
+				allow: %starwood-interns;
+			}
+		}
+		
+	}
+}
+
+acl://staging/* {
+	deny: %accident-prone;
+}

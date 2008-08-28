@@ -1,0 +1,47 @@
+grammar AccessControlLanguage
+	rule file
+		(selection / whitespace)* <FileNode>
+	end
+	
+	rule selection
+		selector whitespace+ block <SelectionNode>
+	end
+	
+	rule block
+		'{'
+			(property / selection / whitespace)*
+		'}' <BlockNode>
+	end
+	
+	rule property
+		propertyname ':' (whitespace+ subject)* whitespace* ';' <PropertyNode>
+	end
+	
+	rule propertyname
+		alphanum+ <PropertyNameNode>
+	end
+	
+	rule subject
+		'%'? (alphanum / [-@])+ <SubjectNode>
+	end
+	
+	rule selector
+		(alphanum / [/:])+ '*'? <SelectorNode>
+	end
+	
+	rule alphanum
+		alpha / num
+	end
+	
+	rule alpha
+		[A-Za-z]
+	end
+	
+	rule num
+		[0-9]
+	end
+	
+	rule whitespace
+		[ \t\n\r\v]
+	end
+end
