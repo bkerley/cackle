@@ -1,0 +1,7 @@
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/cackle
+lib/cackle.rb
+test/test_cackle.rb
