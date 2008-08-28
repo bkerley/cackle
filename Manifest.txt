@@ -4,4 +4,11 @@ README.txt
 Rakefile
 bin/cackle
 lib/cackle.rb
+lib/cackle/Rakefile
+lib/cackle/acl_parser.rb
+lib/cackle/acl_parser.treetop
+lib/cackle/node_flavors.rb
+lib/cackle/rule_list.rb
+lib/cackle/sample.acl
+lib/cackle/tt_test.rb
 test/test_cackle.rb
