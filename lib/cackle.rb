@@ -1,6 +1,6 @@
 $:.unshift File.dirname(__FILE__)
+require 'rubygems'
 require 'treetop'
-require 'yaml'
 require 'cackle/rule_list'
 require 'cackle/node_flavors'
 require 'cackle/acl_parser'
