@@ -32,6 +32,10 @@ class TestRules < Test::Unit::TestCase
       should 'check asterisks first' do
         assert_equal false, @rulelist.test('acl://staging/admin/cms/sites/1/alpha/interns', '%deny-all')
       end
+      
+      should 'evaluate longer allow rules before shorter deny rules' do
+        assert_equal true, @rulelist.test('acl://staging/admin/cms/sites/1/alpha/interns', '%starwood-interns')
+      end
     end
   end
 end

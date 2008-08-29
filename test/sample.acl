@@ -9,7 +9,7 @@ acl://* {
 
 acl://staging/admin/cms/sites/1 {
 	allow: %starwood-corporate %starwood-caribbean;
-	deny: %our-mortal-enemy;
+	deny: %our-mortal-enemy %starwood-interns;
 	
 	/alpha/interns {
 		allow: %starwood-interns %deny-all %accident-prone;
