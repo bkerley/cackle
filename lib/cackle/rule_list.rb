@@ -13,7 +13,6 @@ module Cackle
     def test(path, subject)
       relevant = @selections.select{|s| path =~ s.selector}
       return false if relevant.empty?
-      
 
       relevant.map do |sel|
         return false if sel.properties['deny'] && sel.properties['deny'].include?(subject)
