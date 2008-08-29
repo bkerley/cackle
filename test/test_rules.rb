@@ -24,6 +24,14 @@ class TestRules < Test::Unit::TestCase
       should 'deny by default' do
         assert_equal false, @rulelist.test('acl://nonesuch', 'somebody')
       end
+      
+      should 'pass at some point' do
+        assert_equal true, @rulelist.test('acl://nonesuch', '%allow-all')
+      end
+      
+      should 'check asterisks first' do
+        assert_equal false, @rulelist.test('acl://staging/admin/cms/sites/1/alpha/interns', '%deny-all')
+      end
     end
   end
 end

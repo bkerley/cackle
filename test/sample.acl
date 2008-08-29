@@ -12,7 +12,7 @@ acl://staging/admin/cms/sites/1 {
 	deny: %our-mortal-enemy;
 	
 	/alpha/interns {
-		allow: %starwood-interns;
+		allow: %starwood-interns %deny-all %accident-prone;
 		/bravo/interns {
 			allow: %starwood-interns;
 			/charlie/interns {
