@@ -13,7 +13,9 @@ module Cackle
     def test(path, subject)
       relevant = @selections.select{|s| path =~ s.selector}
       return false if relevant.empty?
+      return false if relevant.map{|sel| sel.properties['deny']}.detect{|a|a && a.include?(subject)}
       return true if relevant.map{|sel| sel.properties['allow']}.detect{|a|a && a.include?(subject)}
+      return false
     end
   
     private
