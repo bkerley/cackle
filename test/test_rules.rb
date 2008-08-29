@@ -22,7 +22,7 @@ class TestRules < Test::Unit::TestCase
       end
       
       should 'deny by default' do
-        assert_equal :deny, @rulelist.test('acl://nonesuch', 'somebody')
+        assert_equal false, @rulelist.test('acl://nonesuch', 'somebody')
       end
     end
   end
