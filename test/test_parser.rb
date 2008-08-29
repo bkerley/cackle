@@ -21,5 +21,10 @@ class TestParser < Test::Unit::TestCase
     should 'return a FileNode' do
       assert_kind_of AccessControlLanguage::FileNode, @parser.parse('acl://test {}')
     end
+    
+    should 'return a FileNode with a really complicated string' do
+      data = File.read(File.dirname(__FILE__) + '/sample.acl')
+      assert_kind_of AccessControlLanguage::FileNode, @parser.parse(data)
+    end
   end
 end
