@@ -10,8 +10,9 @@ module Cackle
       @selections
     end
   
-    def selections_for(url)
-      @selections.select{|s| url =~ s.selector}
+    def test(path, subject)
+      relevant = @selections.select{|s| path =~ s.selector}
+      return false if relevant = []
     end
   
     private
