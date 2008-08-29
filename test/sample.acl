@@ -1,4 +1,4 @@
-acl://invalid {
+acl://valid {
 	allow: whoever;
 }
 
