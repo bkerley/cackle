@@ -8,19 +8,25 @@ Cackle compiles CSS-like access control lists into an easily usable ruby data st
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* parses acls
+* does not support comments
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+1) make .acl file (see test/sample.acl)
+2) load .acl file (see bin/cackle)
+3) query acl (see test/test_rules.rb)
+4) receive bacon
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* Treetop to generate the parser from the included grammar
+* Shoulda for testing
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* gem sources -a http://gems.github.com (you only have to do this once)
+* sudo gem install bkerley-cackle
 
 == LICENSE:
 
