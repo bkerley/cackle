@@ -20,7 +20,7 @@ module Cackle
 
     class FileNode < ACLNode
       def selections
-        return @sel if @sel
+        return @sel if instance_variable_defined? :@sel
       
         @sel = children_that_are SelectionNode
         @sel += capture_subselections
@@ -59,7 +59,7 @@ module Cackle
       end
     
       def subselections
-        return @subselections if @subselections
+        return @subselections if instance_variable_defined? :@subselections
         @subselections = direct_subselections
       
         @subselections += direct_subselections.map{|ss| ss.subselections}.flatten
