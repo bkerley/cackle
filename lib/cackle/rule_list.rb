@@ -13,8 +13,16 @@ module Cackle
     def test(path, subject)
       relevant = @selections.select{|s| path =~ s.selector}
       return false if relevant.empty?
-      return false if relevant.map{|sel| sel.properties['deny']}.detect{|a|a && a.include?(subject)}
-      return true if relevant.map{|sel| sel.properties['allow']}.detect{|a|a && a.include?(subject)}
+      
+      inner = callcc do |c|
+        relevant.map do |sel|
+          c.call :deny if sel.properties['deny'] && sel.properties['deny'].include?(subject)
+          c.call :allow if sel.properties['allow'] && sel.properties['allow'].include?(subject)
+        end
+      end
+      
+      return false if inner == :deny
+      return true if inner == :allow
       return false
     end
   
