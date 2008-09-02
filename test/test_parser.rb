@@ -22,6 +22,14 @@ class TestParser < Test::Unit::TestCase
       assert_kind_of AccessControlLanguage::FileNode, @parser.parse('acl://test {}')
     end
     
+    should 'parse a selection with a subselection' do
+      assert_kind_of AccessControlLanguage::FileNode, @parser.parse('acl://test { /alpha {} }')
+    end
+    
+    should 'parse a selection with two subselections' do
+      assert_kind_of AccessControlLanguage::FileNode, @parser.parse('acl://test { /alpha {} /beta {} }')
+    end
+    
     should 'return a FileNode with a really complicated string' do
       data = File.read(File.dirname(__FILE__) + '/sample.acl')
       assert_kind_of AccessControlLanguage::FileNode, @parser.parse(data)
