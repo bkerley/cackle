@@ -23,11 +23,11 @@ grammar AccessControlLanguage
 	end
 	
 	rule subject
-		'%'? (alphanum / [-@])+ <SubjectNode>
+		'%'? (alphanum / [-@.])+ <SubjectNode>
 	end
 	
 	rule selector
-		(alphanum / [/:])+ '*'? <SelectorNode>
+		(alphanum / [/:\-_+])+ '*'? <SelectorNode>
 	end
 	
 	rule alphanum
