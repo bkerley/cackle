@@ -19,7 +19,9 @@ acl://staging/admin/cms/sites/1 {
 				allow: %starwood-interns;
 			}
 		}
-		
+	}
+	/all-about-bryce {
+		allow: bryce@worldmedia.net;
 	}
 }
 
