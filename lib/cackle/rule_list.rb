@@ -11,6 +11,13 @@ module Cackle
     end
   
     def test(path, subject)
+      disposition = soft_test(path, subject)
+      
+      return false if disposition == :soft_fail 
+      return disposition
+    end
+    
+    def soft_test(path, subject)
       relevant = @selections.select{|s| path =~ s.selector}
       return false if relevant.empty?
 
@@ -19,7 +26,7 @@ module Cackle
         return true if sel.properties['allow'] && sel.properties['allow'].include?(subject)
       end
       
-      return false
+      return :soft_fail
     end
   
     private
